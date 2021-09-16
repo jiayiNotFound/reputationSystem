@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+      <input type="text" [(ngModel)]="startDate" placeholder="Datepicker" class="form-control"
+        [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-orange' }" bsDatepicker>
+    </div>
+    -
+    <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+      <input type="text" [(ngModel)]="endDate" placeholder="Daterangepicker" class="form-control"
+        [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-orange' }" bsDatepicker>
+    </div>
+    <div class="col-xs-12 col-12 col-md-3 form-group mb-3">
+      <button type="button" class="btn btn-primary">
+        Search
+      </button>
+    </div>
+  </div>
+
+  <div class="card">
+    <p-table [value]="listOfData" styleClass="p-datatable-sm" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first"
+      responsiveLayout="scroll" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      [rowsPerPageOptions]="[10,20,30]" >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Quantity</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-listOfData >
+        <tr>
+          <td>
+            {{listOfData.code}}
+          </td>
+          <td>{{listOfData.name}}</td>
+          <td>{{listOfData.age}}</td>
+          <td>{{listOfData.address}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="d-flex" id="wrapper">
+  <!-- Sidebar -->
+  <div class="border-right" id="sidebar-wrapper" [ngClass]="status==true ? 'hide' : 'show'">
+    <div class="sidebar-heading text-center text-light">
+      <!-- <p class="mt-4"> WELCOME JIAYI</p> -->
+      <img class="mt-4 mb-2" src="../../../assets/IMG_1582.JPG" alt="">
+      <hr class="dropdown-divider">
+    </div>
+    <div class="list-group">
+      <a [routerLink]="['home']" routerLinkActive="router-link-active"
+        class="list-group-item list-group-item-action list-group-action-hover-color mt-1"><i class="fa fa-home"
+          aria-hidden="true" style="color: #BB74D8;margin-right: 6px;"></i>
+        Home</a>
+      <a [routerLink]="['report']" routerLinkActive="router-link-active"
+        class="list-group-item list-group-item-action  list-group-item-primary  mt-1"><i class="fa fa-file"
+          aria-hidden="true" style="color: #BB74D8;;margin-right: 6px;"></i> Report</a>
+
+      <a [routerLink]="['keyword']" routerLinkActive="router-link-active"
+        class="list-group-item list-group-item-action  list-group-item-primary  mt-1 "><i class="fa fa-key"
+          aria-hidden="true" style="color: #BB74D8;; margin-right: 5px;"></i> Keyword</a>
+      <a [routerLink]="['alarm']" routerLinkActive="router-link-active"
+        class="list-group-item list-group-item-action  list-group-item-primary  mt-1 "><i class="fa fa-bell-o"
+          aria-hidden="true" style="color: #BB74D8;; margin-right: 5px;"></i> Alarm</a>
+      <a [routerLink]="['news']" routerLinkActive="router-link-active"
+        class="list-group-item list-group-item-action  list-group-item-primary  mt-1"><i class="fa fa-newspaper-o"
+          aria-hidden="true" style="color: #BB74D8;;margin-right: 6px;"></i> News</a>
+      <hr class="dropdown-divider">
+      <div (click)="clickEvent()" class="list-group-item list-group-item-action  list-group-item-primary  mt-1 ">
+        <i class="fa fa-bars" aria-hidden="true" style="color:#A27DE6;;margin-right: 5px;"></i> Close
+      </div>
+    </div>
+  </div>
+  <div class="border-right" id="sidebar-wrapper" *ngIf="status">
+    <div class="sidebar-heading text-center text-light">
+      <!-- <p class="mt-4">Hi</p> -->
+      <img class="mt-4 mb-2" src="../../../assets/IMG_1582.JPG" alt="">
+      <hr class="dropdown-divider">
+    </div>
+    <div class="mini-list-group text-center ">
+      <a [routerLink]="['home']" routerLinkActive="router-link-active"
+        class="list-group-item list-group-item-action mt-1"><i class="fa fa-home" aria-hidden="true"
+          style="color: #BB74D8;"></i>
+      </a>
+      <a [routerLink]="['report']" routerLinkActive="router-link-active"
+        class="list-group-item list-group-item-action  list-group-item-primary  mt-1"><i class="fa fa-file"
+          aria-hidden="true" style="color: #BB74D8;"></i></a>
+      <a [routerLink]="['news']" routerLinkActive="router-link-active"
+        class="list-group-item list-group-item-action  list-group-item-primary  mt-1"><i class="fa fa-newspaper-o"
+          aria-hidden="true" style="color: #BB74D8;"></i></a>
+      <a [routerLink]="['alarm']" routerLinkActive="router-link-active"
+        class="list-group-item list-group-item-action  list-group-item-primary  mt-1 "><i class="fa fa-bell-o"
+          aria-hidden="true" style="color: #BB74D8;"></i></a>
+      <hr class="dropdown-divider">
+      <div (click)="clickEvent()" class=" event list-group-item list-group-item-action  list-group-item-primary  mt-1 ">
+
+        <i class="fa fa-bars" aria-hidden="true" style="color:#A27DE6"></i>
+
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+  </div>
+  <div id="page-content-wrapper">
+    <router-outlet></router-outlet>
+  </div>
+  <!-- /#page-content-wrapper -->
+</div>

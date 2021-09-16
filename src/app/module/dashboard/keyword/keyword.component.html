@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <div class="row mt-3">
+        <div class="col-2">
+          <button type="button" class="btn btn-primary mb-4" (click)="openModal(template)">Add keyword <i class="fa fa-key" aria-hidden="true"></i></button>
+        </div>
+        <p-table [value]="KeywordList" responsiveLayout="scroll">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Must Include</th>
+              <th>Option Include</th>
+              <th>Not Include</th>
+              <th>Monitoring frequency:</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-KeywordList>
+            <tr>
+              <td>{{KeywordList.required}}</td>
+              <td>{{KeywordList.option}}</td>
+              <td>{{KeywordList.exclude}}</td>
+              <td>{{KeywordList.monitor}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div card>
+      <div class="input-group mb-3">
+        <label class="mr-2 mt-1"> Must include: </label>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+          aria-describedby="basic-addon1" [(ngModel)]="addModalList.required">
+        <span class="input-group-text bg-light" id="basic-addon1"><i class="fa fa-refresh "
+            aria-hidden="true"></i></span>
+      </div>
+      <div class="input-group mb-3">
+        <label class="mr-2 mt-1">Option include: </label>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+          aria-describedby="basic-addon1" [(ngModel)]="addModalList.option">
+        <span class="input-group-text bg-light" id="basic-addon1"><i class="fa fa-refresh "
+            aria-hidden="true"></i></span>
+      </div>
+      <div class="input-group mb-3">
+        <label class="mr-2 mt-1">Not include: </label>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+          aria-describedby="basic-addon1" [(ngModel)]="addModalList.exclude">
+        <span class="input-group-text bg-light" id="basic-addon1"><i class="fa fa-refresh "
+            aria-hidden="true"></i></span>
+      </div>
+      <div class="input-group mb-3">
+        <label class="mr-2 mt-1">Monitoring frequency: </label>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+          aria-describedby="basic-addon1" [(ngModel)]="addModalList.monitor">
+        <span class="input-group-text bg-light" id="basic-addon1"><i class="fa fa-refresh "
+            aria-hidden="true"></i></span>
+      </div>
+      <button type="button" class="btn btn-primary float-right" (click)="saveAddmodal()">Save <i class="fa fa-check" aria-hidden="true"></i> </button>
+    </div>
+  </div>
+</ng-template>
