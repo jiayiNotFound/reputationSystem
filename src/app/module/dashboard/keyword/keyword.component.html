@@ -2,8 +2,8 @@
   <div class="card">
     <div class="card-body">
       <div class="row mt-3">
-        <div class="col-2">
-          <button type="button" class="btn btn-primary mb-4" (click)="openModal(template)">Add keyword <i class="fa fa-key" aria-hidden="true"></i></button>
+        <div class="col-3">
+          <button type="button" class="btn btn-outline-secondary mb-4" (click)="openModal(template)">Add keyword </button>
         </div>
         <p-table [value]="KeywordList" responsiveLayout="scroll">
           <ng-template pTemplate="header">
@@ -11,15 +11,21 @@
               <th>Must Include</th>
               <th>Option Include</th>
               <th>Not Include</th>
-              <th>Monitoring frequency:</th>
+              <th>Monitoring frequency</th>
+              <th>Action</th>
+
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-KeywordList>
             <tr>
-              <td>{{KeywordList.required}}</td>
-              <td>{{KeywordList.option}}</td>
-              <td>{{KeywordList.exclude}}</td>
-              <td>{{KeywordList.monitor}}</td>
+              <td>{{KeywordList.keyword}}</td>
+              <td>{{KeywordList.may_keyword}}</td>
+              <td>{{KeywordList.nokeyword}}</td>
+              <td>{{KeywordList.frequency}}</td>
+              <td>
+                <button class="btn btn-warning btn-sm mr-3" (click)=editKeyword(KeywordList.id)>Edit</button>
+                <button class="btn btn-danger btn-sm" (click)=deleteKeyword(KeywordList.id)>Delete</button>
+              </td>
             </tr>
           </ng-template>
         </p-table>
@@ -40,32 +46,32 @@
       <div class="input-group mb-3">
         <label class="mr-2 mt-1"> Must include: </label>
         <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-          aria-describedby="basic-addon1" [(ngModel)]="addModalList.required">
+          aria-describedby="basic-addon1" [(ngModel)]="addModalList.keyword">
         <span class="input-group-text bg-light" id="basic-addon1"><i class="fa fa-refresh "
             aria-hidden="true"></i></span>
       </div>
       <div class="input-group mb-3">
         <label class="mr-2 mt-1">Option include: </label>
         <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-          aria-describedby="basic-addon1" [(ngModel)]="addModalList.option">
+          aria-describedby="basic-addon1" [(ngModel)]="addModalList.may_keyword">
         <span class="input-group-text bg-light" id="basic-addon1"><i class="fa fa-refresh "
             aria-hidden="true"></i></span>
       </div>
       <div class="input-group mb-3">
         <label class="mr-2 mt-1">Not include: </label>
         <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-          aria-describedby="basic-addon1" [(ngModel)]="addModalList.exclude">
+          aria-describedby="basic-addon1" [(ngModel)]="addModalList.nokeyword">
         <span class="input-group-text bg-light" id="basic-addon1"><i class="fa fa-refresh "
             aria-hidden="true"></i></span>
       </div>
       <div class="input-group mb-3">
         <label class="mr-2 mt-1">Monitoring frequency: </label>
         <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-          aria-describedby="basic-addon1" [(ngModel)]="addModalList.monitor">
+          aria-describedby="basic-addon1" [(ngModel)]="addModalList.frequency">
         <span class="input-group-text bg-light" id="basic-addon1"><i class="fa fa-refresh "
             aria-hidden="true"></i></span>
       </div>
-      <button type="button" class="btn btn-primary float-right" (click)="saveAddmodal()">Save <i class="fa fa-check" aria-hidden="true"></i> </button>
+      <button type="button" class="btn btn-primary float-right" (click)="saveAddmodal()">Save </button>
     </div>
   </div>
 </ng-template>

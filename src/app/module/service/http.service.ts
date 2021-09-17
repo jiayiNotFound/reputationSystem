@@ -21,7 +21,6 @@ export class HttpService {
     return new Observable(res=>{
       this.http.post(this.domin+api,paremeter).subscribe(val=>{
         res.next(val)
-        console.log(paremeter)
       })
     })
   }
