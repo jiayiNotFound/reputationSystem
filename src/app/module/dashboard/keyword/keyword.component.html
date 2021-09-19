@@ -23,8 +23,8 @@
               <td>{{KeywordList.nokeyword}}</td>
               <td>{{KeywordList.frequency}}</td>
               <td>
-                <button class="btn btn-warning btn-sm mr-3" (click)=editKeyword(KeywordList.id)>Edit</button>
-                <button class="btn btn-danger btn-sm" (click)=deleteKeyword(KeywordList.id)>Delete</button>
+                <button class="btn btn-warning btn-sm mr-3" (click)="editKeyword(KeywordList.id,template)">Edit</button>
+                <button class="btn btn-danger btn-sm" (click)="deleteKeyword(KeywordList.id)">Delete</button>
               </td>
             </tr>
           </ng-template>
